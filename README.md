@@ -1,15 +1,15 @@
 # PRISMA-Pilot
 
-**A systematic-review screening assistant that automates the mechanical, error-prone parts of the review pipeline — deduplication, keyword screening, and PRISMA 2020 flow counts — while keeping every decision auditable.**
+**A systematic-review screening assistant that automates the mechanical, error-prone parts of the review pipeline (deduplication, keyword screening, and PRISMA 2020 flow counts) while keeping every decision auditable.**
 
 Systematic reviews lose enormous time to work that is tedious but not hard: reconciling duplicate hits across PubMed, Embase, and Scopus; applying the same inclusion criteria to hundreds of abstracts; and hand-counting records for the PRISMA flow diagram (where arithmetic slips are common enough that journals catch them in peer review). PRISMA-Pilot does that mechanical layer deterministically and shows its work, so a human reviewer spends their attention on the genuinely ambiguous studies instead of the obvious ones.
 
-Zero dependencies. Pure Python standard library. Reproducible by design.
+Zero dependencies, Pure Python standard library and reproducible by design.
 
 ## What it does
 
 1. **Loads** database exports in JSON, CSV, or RIS (the format PubMed, Embase, Zotero, and EndNote all export).
-2. **Deduplicates** across sources using a three-tier strategy — exact DOI, exact normalized title, then year-guarded fuzzy title matching — and records *why* each duplicate was removed.
+2. **Deduplicates** across sources using a three-tier strategy. exact DOI, exact normalized title, then year-guarded fuzzy title matching and records *why* each duplicate was removed.
 3. **Screens** titles and abstracts against a small, declarative rule set (required concepts, topic terms, exclusion terms), tagging every record with the exact terms that fired.
 4. **Counts** everything into a PRISMA 2020 flow summary, with a built-in consistency check that flags arithmetic that doesn't reconcile.
 
